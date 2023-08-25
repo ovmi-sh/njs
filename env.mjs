@@ -6,6 +6,10 @@ export const env = createEnv({
     POSTGRES_URL: z.string().url(),
     POSTGRES_PRISMA_URL: z.string().url(),
     POSTGRES_URL_NON_POOLING: z.string().url(),
+    POSTGRES_USER: z.string().min(1),
+    POSTGRES_HOST: z.string().min(1),
+    POSTGRES_PASSWORD: z.string().min(1),
+    POSTGRES_DATABASE: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().url(),
