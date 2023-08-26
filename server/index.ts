@@ -1,9 +1,10 @@
 import { users } from '@/db/schema';
-import { publicProcedure, router } from './trpc';
+import { protectedProcedure, publicProcedure, router } from './trpc';
 
 import { sql } from '@vercel/postgres';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 
+import { eq } from 'drizzle-orm';
 import { migrate } from 'drizzle-orm/vercel-postgres/migrator';
 
 const db = drizzle(sql);
@@ -17,6 +18,10 @@ export const appRouter = router({
     getUsers: publicProcedure.query(async () => {
         return await db.select().from(users);
     }),
+    getUser: protectedProcedure.query(async ({ ctx }) => {
+        console.log('ctx.auth.userId', ctx.auth.userId);
+        return await db.select().from(users).where(eq(users.clerkId, ctx.auth.userId));
+    })
 });
 
 // Export type router type signature,

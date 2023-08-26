@@ -1,4 +1,5 @@
 import TRPCProvider from "@/trpc/TRPCProvider";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TRPCProvider>{children}</TRPCProvider>
+        <ClerkProvider>
+          <TRPCProvider>{children}</TRPCProvider>
+        </ClerkProvider>
       </body>
     </html>
   );
