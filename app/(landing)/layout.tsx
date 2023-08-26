@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils";
 import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 
-interface MarketingLayoutProps {
+interface LandingLayoutProps {
   children: React.ReactNode;
 }
 
 export default async function LandingLayout({
   children,
-}: MarketingLayoutProps) {
+}: LandingLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="container z-40 bg-background">
