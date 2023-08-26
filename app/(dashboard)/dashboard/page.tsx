@@ -1,12 +1,7 @@
 import HealthCheck from "@/components/HealthCheck";
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
-export default function Home() {
+export default function IndexPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <HealthCheck />
