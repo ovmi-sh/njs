@@ -44,7 +44,7 @@ export function DocsPager({ doc }: DocsPagerProps) {
 export function getPagerForDoc(doc: Doc) {
   const flattenedLinks = [null, ...flatten(docsConfig.sidebarNav), null];
   const activeIndex = flattenedLinks.findIndex(
-    (link) => doc.slug === link?.href
+    (link) => doc._raw.flattenedPath === link?.href
   );
   const prev = activeIndex !== 0 ? flattenedLinks[activeIndex - 1] : null;
   const next =
@@ -57,7 +57,7 @@ export function getPagerForDoc(doc: Doc) {
   };
 }
 
-export function flatten(links: { items? }[]) {
+export function flatten(links: { items?: { items?: any; }[] }[]): any {
   return links.reduce((flat, link) => {
     return flat.concat(link.items ? flatten(link.items) : link);
   }, []);

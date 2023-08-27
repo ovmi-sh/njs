@@ -1,12 +1,16 @@
 import { appRouter } from '@/server';
-import { Context } from '@/server/context';
+import { Context, createContext } from '@/server/context';
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
+import { NextRequest } from 'next/server';
 
-const handler = (req: Request, ctx: Context) => fetchRequestHandler({
+const handler = (req: NextRequest, ctx: Context) => fetchRequestHandler({
     endpoint: "/api/trpc",
-    req,
     router: appRouter,
-    createContext: () => ctx
+    req,
+    createContext: createContext,
+    onError({ error, path }) {
+        console.error(`>>> tRPC Error on '${path}'`, error);
+    },
 });
 
 export { handler as GET, handler as POST };

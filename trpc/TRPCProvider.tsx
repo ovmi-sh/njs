@@ -4,6 +4,7 @@ import { httpBatchLink } from "@trpc/client";
 import React, { useState } from "react";
 
 import { absoluteUrl } from "@/lib/utils";
+import superjson from "superjson";
 import { trpc } from "./client";
 
 export default function TRPCProvider({
@@ -19,6 +20,7 @@ export default function TRPCProvider({
           url: absoluteUrl("/api/trpc"),
         }),
       ],
+      transformer: superjson,
     })
   );
   return (
