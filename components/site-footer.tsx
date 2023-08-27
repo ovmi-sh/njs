@@ -1,9 +1,9 @@
 import * as React from "react";
 
+import { Logo } from "@/components/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import Logo from "./logo";
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
