@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import Logo from "@/components/logo";
+import { LogoElement } from "@/components/logo-element";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -45,7 +45,7 @@ export default function SignUpPage() {
         <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
           <div className="absolute inset-0 bg-zinc-900" />
           <div className="relative z-20 flex items-center gap-2 text-lg font-medium">
-            <Logo />
+            <LogoElement />
           </div>
           <div className="relative z-20 mt-auto">
             <p className="text-sm text-muted-foreground">

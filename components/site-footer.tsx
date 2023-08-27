@@ -1,16 +1,16 @@
 import * as React from "react";
 
+import { LogoElement } from "@/components/logo-element";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import Logo from "./logo";
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
     <footer className={cn(className)}>
       <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
         <div className="flex gap-2">
-          <Logo />
+          <LogoElement />
         </div>
         <p className="text-center text-sm leading-loose md:text-left">
           Built by{" "}
