@@ -1,7 +1,7 @@
 import { siteConfig } from "@/config/site";
 import { Icons } from "./icons";
 
-export function Logo() {
+export function LogoElement() {
   return (
     <>
       <Icons.logo />
